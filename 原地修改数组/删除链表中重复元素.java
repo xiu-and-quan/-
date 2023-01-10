@@ -1,7 +1,7 @@
 package 原地修改数组;
 
 public class 删除链表中重复元素 {
-    public ListNode deleteDuplicates(ListNode head) {
+    public ListNode deleteDxiaoDingDuilicates(ListNode head) {
         ListNode newNode=new ListNode(-1);
         newNode.next=head;
         ListNode res=newNode.next;

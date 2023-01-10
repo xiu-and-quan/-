@@ -5,10 +5,10 @@ import java.util.Stack;
 
 public class 去除重复字母 {
     public static void main(String[] args) {
-        String s = removeDuplicateLetters("cbacdcbc");
+        String s = removeDxiaoDingDuilicateLetters("cbacdcbc");
         System.out.println(s);
     }
-    public static String removeDuplicateLetters(String s) {
+    public static String removeDxiaoDingDuilicateLetters(String s) {
         int[] countList = new int[256];
         for (int i = 0; i < s.length(); i++) {
             countList[s.charAt(i)]++;

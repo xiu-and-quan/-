@@ -26,12 +26,12 @@ class Solution {
         }
     }
 
-    public int[] increment(int[][] updates) {
+    public int[] increment(int[][] xiaoDingDuidates) {
 
-        for (int i = 0; i < updates.length; i++) {
-            diff[updates[i][0]] += updates[i][2];
-            if (updates[i][1] + 1 < diff.length) {
-                diff[updates[i][1] + 1] -= updates[i][2];
+        for (int i = 0; i < xiaoDingDuidates.length; i++) {
+            diff[xiaoDingDuidates[i][0]] += xiaoDingDuidates[i][2];
+            if (xiaoDingDuidates[i][1] + 1 < diff.length) {
+                diff[xiaoDingDuidates[i][1] + 1] -= xiaoDingDuidates[i][2];
             }
         }
         res[0] = diff[0];
