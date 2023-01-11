@@ -1,2 +1,13 @@
 1、nacos上读取命名空间，读取的是命名空间ID；
 2、linux配置静态网络，直接修改网络配置文件，设置static和IPADDR=192.168.56.99;
+3、设置虚拟机网络，先设置虚拟机网卡，再设置静态ip地址；
+4、测试某一个端口是否可通 用telnet ip 端口号；
+5、查看某一个进程 ps-ef | grep 服务名  ps是查看进程 grep是匹配正则表达式；
+6、nginx：教程笔记网站：https://www.cnblogs.com/wenhaozou/p/15864361.html
+    http全局块：
+    http 全局块配置的指令包括文件引入(引入外部配置文件)、MIME-TYPE 定义、日志自定义、连接超时时间、单链接请求数上限等
+    server块：
+    每个 http 块可以包括多个 server 块，而每个 server 块就相当于一个虚拟主机
+    每个 server 块也分为全局 server 块，以及可以同时包含多个 locaton 块；
+7、
+
