@@ -60,33 +60,79 @@ public class 二叉搜索子树的最大键值和 {
     //BST最大几点之和
     int maxSum = 0;
     public void helper(TreeNode root){
-        if (root == null){
-            return;
-        }
         /*root节点的左右子树是否是BST
          * root节点的左右子树的最大值最小值
          * root左右子树的节点之和*/
 
         //root节点的左右子树是否是BST
         if (!isBST(root.left) || !isBST(root.right)){
-
+            return;
         }
         //root节点的左右子树的最大值最小值
-        int leftMax = findMax(root.left);
-        int rightMin = findMin(root.right);
+        int leftMax = findMax(root.left,Integer.MIN_VALUE);
+        int rightMin = findMin(root.right,Integer.MAX_VALUE);
         //判断以root为节点的树是不是BST
         if (root.val <= leftMax || root.val >= rightMin){
-
+            return;
         }
         //条件都符合，计算当前节点之和
         int leftSum = findSum(root.left);
         int rightSum = findSum(root.right);
         //计算BST节点的最大值
         this.maxSum = Math.max(maxSum,leftSum + rightSum + root.val);
-
         //递归左右子树
         helper(root.left);
         helper(root.right);
+    }
+
+    private int findSum(TreeNode node) {
+       if (node == null){
+           return 0;
+       }
+       int leftSum = findSum(node.left);
+       int rightSum = findSum(node.right);
+       return node.val + leftSum + rightSum;
+    }
+
+    //查找子树最大节点
+    private int findMax(TreeNode left,int leftMax) {
+        if (left != null){
+            leftMax = Math.max(left.val,leftMax);
+            findMax(left.left,leftMax);
+            findMax(left.right,leftMax);
+        }
+        return leftMax;
+    }
+    //查找子树最小节点
+
+    private int findMin(TreeNode right,int rightMin) {
+        if (right != null){
+            rightMin = Math.min(right.val,rightMin);
+            findMin(right.left,rightMin);
+            findMin(right.right,rightMin);
+        }
+        return rightMin;
+    }
+
+    /*判断二叉搜索树的合法性*/
+    private boolean isBST(TreeNode root) {
+        //验证二叉搜索树 需要考虑两层节点 类似奇数偶数
+        return checkBTSHelper(root,null,null);
+
+    }
+    boolean checkBTSHelper(TreeNode root,TreeNode min,TreeNode max){
+        //1、当前root要大于左节点，小于右节点
+        //2、当前root的值要大于左子树的最大节点和小于右子树的最小节点
+        if (root == null){
+            return true;
+        }
+        if (min != null && root.val <= min.val){
+            return false;
+        }
+        if (max != null && root.val >= max.val){
+            return false;
+        }
+        return checkBTSHelper(root.left,min,root) && checkBTSHelper(root.right,root,max);
     }
 
 }

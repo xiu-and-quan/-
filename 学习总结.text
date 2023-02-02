@@ -9,5 +9,10 @@
     server块：
     每个 http 块可以包括多个 server 块，而每个 server 块就相当于一个虚拟主机
     每个 server 块也分为全局 server 块，以及可以同时包含多个 locaton 块；
-7、
-
+7、nginx用在前端，后端用gateway均衡；
+8、java -jar gateway.jar --spring.cloud.bootstrap.location=bootstrap.yaml & 加& 表示后台运行服务
+9、linux运行nacos，需要关闭防火墙才可以访问页面；
+10、启动redis
+   根据上面的操作已经将redis安装完成了。在目录/usr/local/redis 输入下面命令启动redis
+   ./bin/redis-server& ./redis.conf
+11、
