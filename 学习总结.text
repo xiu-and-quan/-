@@ -15,4 +15,5 @@
 10、启动redis
    根据上面的操作已经将redis安装完成了。在目录/usr/local/redis 输入下面命令启动redis
    ./bin/redis-server& ./redis.conf
-11、
+11、安装linux显示没有数据源，说明系统没装好，需要设置系统的数据源，并且设置成光驱启动就要可以，然后再换成硬盘启动；
+
