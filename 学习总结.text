@@ -16,4 +16,10 @@
    根据上面的操作已经将redis安装完成了。在目录/usr/local/redis 输入下面命令启动redis
    ./bin/redis-server& ./redis.conf
 11、安装linux显示没有数据源，说明系统没装好，需要设置系统的数据源，并且设置成光驱启动就要可以，然后再换成硬盘启动；
-
+12、linux切换成root用户 su root 输入密码
+13、curl命令就是访问http地址可以加参数请求
+14、rm -rf 删除
+15、mv 移动
+16、source命令通常用于重新执行刚修改的初始化文件,使之立即生效,而不必注销并重新登录。
+17、防火墙的关闭  systemctl stop firewalld
+18、网络的重启 service network restart
