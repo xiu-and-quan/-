@@ -24,3 +24,4 @@
 17、防火墙的关闭  systemctl stop firewalld
 18、网络的重启 service network restart
 19、linux中sh是执行shell脚本
+20、linux相关知识文档：https://github.com/CyC2018/CS-Notes/blob/master/notes/Linux.md
