@@ -26,3 +26,18 @@
 19、linux中sh是执行shell脚本
 20、linux相关知识文档：https://github.com/CyC2018/CS-Notes/blob/master/notes/Linux.md
 21、source /etc/profile # 刷新配置文件
+22、一、常用注解@NotEmpty，@NotBlank，@NotNull介绍
+   包位置：javax.validation.constraints.xxx
+   @NotEmpty 用在集合上面，一般用来校验List类型(不能注释枚举)，而且长度必须大于0
+   @NotBlank 用在String上面，一般用来校验String类型不能为空，而且调用trim()后，长度必须大于0。
+   @NotNull 用在所有类型上面，一般用来校验Integer类型不能为空，但可以为empty。
+   需要搭配@Valid使用，在检验Controller的入参是否符合规范时
+23、foreach元素的属性主要有 item，index，collection，open，separator，close。
+   item：集合中元素迭代时的别名，该参数为必选。
+   index：在list和数组中，index是元素的序号，在map中，index是元素的key，该参数可选
+   open：foreach代码的开始符号，一般是(和close=")"合用。常用在in()、values()时。该参数可选
+   separator：元素之间的分隔符，例如在in()的时候，separator=","会自动在元素中间用“,“隔开，避免手动输入逗号导致sql错误，如in(1,2,)这样。该参数可选。
+   close：foreach代码的关闭符号，一般是)和open="("合用。常用在in()、values()时。该参数可选。
+   collection：要做foreach的对象，作为入参时，List对象默认用"list"代替作为键；数组对象有"array"代替作为键；Map对象没有默认的键。
+   当然在作为入参时可以使用@Param("keyName")来设置键，设置keyName后，list和array将会失效。除了入参这种情况外，还有一种作为参数对象的某个字段的时候。
+24、服务器名字不能带下划线，无法识别下划线

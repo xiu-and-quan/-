@@ -20,6 +20,13 @@ public class StremGroupBy {
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
         }
+        //流的reduce方法
+        List<Integer> reduceTestList = new ArrayList<>();
+        reduceTestList.add(1);
+        reduceTestList.add(2);
+        reduceTestList.add(3);
+        Integer reduceTestRes = reduceTestList.stream().reduce((x, y) -> x + y).get();
+        System.out.println(reduceTestRes);
     }
 }
 class Activity{
