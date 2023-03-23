@@ -40,4 +40,4 @@
    close：foreach代码的关闭符号，一般是)和open="("合用。常用在in()、values()时。该参数可选。
    collection：要做foreach的对象，作为入参时，List对象默认用"list"代替作为键；数组对象有"array"代替作为键；Map对象没有默认的键。
    当然在作为入参时可以使用@Param("keyName")来设置键，设置keyName后，list和array将会失效。除了入参这种情况外，还有一种作为参数对象的某个字段的时候。
-24、服务器名字不能带下划线，无法识别下划线
+24、服务器名字不能带下划线，无法识别下划线，并且@EnableFeignClients是给要调用其他服务的类加
