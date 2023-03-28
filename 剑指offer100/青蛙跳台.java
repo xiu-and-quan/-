@@ -1,6 +1,6 @@
 package 剑指offer100;
 
-public class 爬楼梯 {
+public class 青蛙跳台 {
     public static void main(String[] args) {
         System.out.println(numWays(7));
     }
