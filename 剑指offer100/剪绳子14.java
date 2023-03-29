@@ -2,7 +2,7 @@ package 剑指offer100;
 
 public class 剪绳子14 {
     public static void main(String[] args) {
-        System.out.println(cuttingRope(6));
+        System.out.println(cuttingRope(120));
     }
     public static int cuttingRope(int n) {
         if (n == 2){
@@ -20,7 +20,7 @@ public class 剪绳子14 {
         //遍历状态做选择
         for(int i = 3;i <= n;i++){
             for(int j = 1; j < i;j++){
-                dp[i] = Math.max(dp[i],dp[i-j]*j);
+                dp[i] = Math.max(dp[i],dp[i-j]*j)%1000000007;
             }
         }
         return dp[n];
