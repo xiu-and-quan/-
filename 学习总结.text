@@ -43,3 +43,5 @@
 24、服务器名字不能带下划线，无法识别下划线，并且@EnableFeignClients是给要调用其他服务的类加
 25、用调用openfeign接口时，如果是请求体需要加@RequestBody
 26、1<<0 这表示1左移0位置，左边为主 1>>0 1右移1位
+27、nacos 单机运行命令 startup.cmd -m standalone
+28、序列化和反序列化不能用基础类型 int换成Integert  long换成Long
