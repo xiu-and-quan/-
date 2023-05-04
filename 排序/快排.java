@@ -17,7 +17,7 @@ class QuickSort{
        smaller (smaller than pivot) to left of
        pivot and all greater elements to right
        of pivot */
-    int partition(int arr[], int low, int high)
+    static int partition(int arr[], int low, int high)
     {
         int pivot = arr[high];
         int i = (low-1); // index of smaller element
@@ -47,7 +47,7 @@ class QuickSort{
       arr[] --> Array to be sorted,
       low  --> Starting index,
       high  --> Ending index */
-    void sort(int arr[], int low, int high)
+    static void sort(int arr[], int low, int high)
     {
         if (low < high)
         {

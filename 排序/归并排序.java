@@ -5,13 +5,13 @@ import java.util.Arrays;
 class MergeSort {
     public static void main(String[] args) {
         int[] numbers = new int[]{5,2,4,3,1};
-        MergeSort(numbers);
+        mergeSort(numbers);
         System.out.println(Arrays.toString(numbers));
     }
     //归并所需的辅助数组
     private static int[] aux;
 
-    public static void MergeSort(int[] numbers) {
+    public static void mergeSort(int[] numbers) {
         //一次性分配空间
         aux = new int[numbers.length];
         sort(numbers, 0, numbers.length - 1);

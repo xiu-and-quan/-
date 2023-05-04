@@ -21,7 +21,7 @@
 14、rm -rf 删除
 15、mv 移动
 16、source命令通常用于重新执行刚修改的初始化文件,使之立即生效,而不必注销并重新登录。
-17、防火墙的关闭  systemctl stop firewalld
+17、关闭防火墙  systemctl stop firewalld
 18、网络的重启 service network restart
 19、linux中sh是执行shell脚本
 20、linux相关知识文档：https://github.com/CyC2018/CS-Notes/blob/master/notes/Linux.md
@@ -78,3 +78,47 @@
     然后运行先执行命令：apt-get update
     然后执行：apt-get install vim
 39、docker容器里面的服务所在位置：opt目录下面
+40、linux中../表示上一层目录
+41、netstat 命令是一个监控 TCP / IP 网络的非常有用的工具，它可以显示路由表、实际的网络连接以及每一个网络接口设备的状态信息
+42、zookeepr的乐观锁用的时版本号
+43、linux修改配置文件后需要 source +文件名
+44、linux一定要关闭防火墙
+45、netstat -alnp | grep 2181 linux查看端口号
+46、linux tail命令用途是按照要求将指定的文件的最后部分输出到标准设备，一般是终端，通俗来讲，就是把某个档案文件的最后几行显示t
+到终端上，如果该档案有更新，tail会自动刷新，确保你看到最新的档案内容。tail -f filename
+47、 yum install  xxx ，yum -y install  xx
+    这两种方式，用起来的作用是一样的，都能成功的对软件进行操作。那不同的地方就在于①在安装或卸载的过程中，会询问用户 ：is that ok？ ②则是将y直接以参数的方式附在指令上，后面就不会有这种询问语句了。
+48、Arrays.sort()排序规则 (a,b)表示原来位置 a, b 比较器里面大于等于0就交换位置 a - b, 说明a大于b就交换位置，所以小的b就在前面，就是升序了
+49、docker run -d -p  小p表示主机端口:容器端口  大P是随机映射
+50、docker --name 别名 容器名
+51、Docker-V 挂载 挂载宿主机的一个目录。
+    譬如我要启动一个centos容器，宿主机的/test目录挂载到容器的/soft目录，可通过以下方式指定：
+    docker run -it -v /test:/soft centos /bin/bash
+    冒号":"前面的目录是宿主机目录，后面的目录是容器内目录
+    注意事项
+    容器目录不可以为相对路径
+    宿主机目录如果不存在，则会自动生成
+    这样宿主机目录和容器内的目录就互通.可以互相传输文件
+52、reids设置密码
+      127.0.0.1:6379> config get requirepass  # 获取密码，为空
+      1) "requirepass"
+      2) ""
+      127.0.0.1:6379> config set requirepass "123456"  # 设置密码123456
+      OK
+53、docker拷贝容器中的文件到宿主机上：
+    docker cp <containerId>:/path/to/file /path/on/host
+    其中，`<containerId>`为容器ID或名称，`/path/to/file`为容器内文件的路径，`/path/on/host`为宿主机上保存文件的路径。
+    如果需要将宿主机上的文件拷贝到容器内，只需调换源和目的地路径即可，例如：
+    docker cp /path/on/host <containerId>:/path/to/file
+54、docker -e e的作用是指定容器内的环境变量。
+             mysql的镜像中是有一个初始化脚本的，这个脚本会读取这个变量初始化root的密码。
+             dockerfile中使用ENV指令指定环境变量 ######环境变量
+55、linux查看某一个端口或者应用是否在运行中  netstat -anp | grep 80
+56、关于基本数据类型与包装数据类型的使用标准如下：
+   1） 【强制】所有的 POJO 类属性必须使用包装数据类型。
+   2） 【强制】RPC 方法的返回值和参数必须使用包装数据类型。
+   3） 【推荐】所有的局部变量使用基本数据类型。
+   说明：POJO 类属性没有初值是提醒使用者在需要使用时，必须自己显式地进行赋值，任何 NPE 问题，或
+   者入库检查，都由使用者来保证。
+   正例：数据库的查询结果可能是 null，因为自动拆箱，用基本数据类型接收有 NPE 风险。
+57、异或运算，相同为0，不同为1 ^
