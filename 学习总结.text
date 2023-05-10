@@ -122,3 +122,10 @@
    者入库检查，都由使用者来保证。
    正例：数据库的查询结果可能是 null，因为自动拆箱，用基本数据类型接收有 NPE 风险。
 57、异或运算，相同为0，不同为1 ^
+58、docker一键安装
+    Docker官方和国内daocloud都提供了一键安装的脚本，使得Docker的安装更加便捷。
+    官方的一键安装方式：
+    curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+    国内 daocloud一键安装命令：
+    curl -sSL https://get.daocloud.io/docker | sh
+59、
