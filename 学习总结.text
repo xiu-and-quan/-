@@ -136,3 +136,18 @@
     workQueue:任务队列，被添加到线程池中，但尚未被执行的任务；它一般分为直接提交队列、有界任务队列、无界任务队列、优先任务队列几种；
     threadFactory:线程工厂，用于创建线程，一般用默认即可；
     handler:拒绝策略；当任务太多来不及处理时，如何拒绝任务；
+60、Scanner in = new Scanner(System.in);
+    in.nextInt();
+    in.nextLine();会将回车当作“”空字符串返回给接受值；
+61、接口也有class对象
+63、远程新建分支，本地不显示，需要git fetch
+64、groupid和artifactId被统称为“坐标”是为了保证项目唯一性而提出的，如果你要把你项目弄到maven本地仓库去，
+    你想要找到你的项目就必须根据这两个id去查找。groupId和artifactId是maven管理项目包时用作区分的字段，
+    就像是地图上的坐标。artifactId：artifactId一般是项目名或者模块名。groupId：groupId分为几个字段，
+    例如cn.com.fullstack，前面的com叫【域】，后面的是你自己起的域名。groupId一般分为多个段，这里我只
+    说两段，第一段为域，第二段为公司名称。域又分为org、com、cn等等许多，其中org为非营利组织，com为商业组织。
+    举个apache公司的tomcat项目例子：这个项目的groupId是org.apache，它的域是org（因为tomcat是非营利项目），
+    公司名称是apache，artigactId是tomcat。
+65、 watch com.meicloud.meiqing.workflow.engine.dao.CdpProcessQueryDao getSelectRemiCodeProcess '{params,returnObj,throwExp}'  -n 5  -x 4
+     watch+方法名(绝对地址) '{params,returnObj,throwExp}'  -n 5  -x 4
+     参数，返回值，异常
