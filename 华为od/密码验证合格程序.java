@@ -34,5 +34,6 @@ public class 密码验证合格程序 {
                 return "NG";
             }
         }
+        return null;
     }
 }

@@ -19,10 +19,16 @@ public class 字符串排序II {
         }
         // 将英文字母先排序好
         letters.sort(new Comparator<Character>() {
+            @Override
             public int compare(Character o1, Character o2) {
                 return Character.toLowerCase(o1) - Character.toLowerCase(o2);
             }
         });
+        /*letters.sort(new Comparator<Character>() {
+            public int compare(Character o1, Character o2) {
+                return Character.toLowerCase(o1) - Character.toLowerCase(o2);
+            }
+        });*/
         // 若是非英文字母则直接添加
         StringBuilder result = new StringBuilder();
         for (int i = 0, j = 0; i < str.length(); i++) {

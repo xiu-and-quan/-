@@ -151,3 +151,20 @@
 65、 watch com.meicloud.meiqing.workflow.engine.dao.CdpProcessQueryDao getSelectRemiCodeProcess '{params,returnObj,throwExp}'  -n 5  -x 4
      watch+方法名(绝对地址) '{params,returnObj,throwExp}'  -n 5  -x 4
      参数，返回值，异常
+66、字符出的排序：
+    第一种：Character[] array = new Character[]{'A','a','b','B'};
+                  Arrays.sort(array, (o1,o2)-> {
+                      return Character.toLowerCase(o1) - (Character.toLowerCase(o1));
+                  });
+    第二种：
+        List<Character> letters = new ArrayList<>();
+        letters.add('A');
+        letters.add('a');
+        letters.add('b');
+        letters.add('B');
+        letters.sort(new Comparator<Character>() {
+                    @Override
+                    public int compare(Character o1, Character o2) {
+                        return Character.toLowerCase(o1) - Character.toLowerCase(o2);
+                    }
+                });
