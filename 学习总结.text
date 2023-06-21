@@ -217,3 +217,6 @@
    Consumer： 调用远程服务的服务消费方，会向注册中心订阅自己所需的服务。必须。
    Registry： 服务注册与发现的注册中心。注册中心会返回服务提供者地址列表给消费者。非必须。
    Monitor： 统计服务的调用次数和调用时间的监控中心。服务消费者和提供者会定时发送统计数据到监控中心。非必须。
+
+73、arthas的使用：watch com.meicloud.jiebao.base.data.impl.BdBmBillTypeFeeTypeRelServiceImpl save
+                '{params,returnObj,throwExp}'  -n 5  -x 4
