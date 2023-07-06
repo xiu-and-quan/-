@@ -220,3 +220,56 @@
 
 73、arthas的使用：watch com.meicloud.jiebao.base.data.impl.BdBmBillTypeFeeTypeRelServiceImpl save
                 '{params,returnObj,throwExp}'  -n 5  -x 4
+74、springBoot加载resources下的xml文件，默认情况下，Spring Boot将扫描项目的src/main/resources目录下具有以下
+    名称的XML文件:
+    - applicationContext -{概要}. xml
+    其中{profile}是活动Spring配置文件的名称。例如，如果活动配置文件是dev, Spring Boot将查找名为applicationContext-dev.xml的XML文件。
+    如果XML文件具有不同的名称或位于不同的位置，则可以使用@ImportResource注释指定XML文件的位置。例如，如果你在src/main/resources/config
+    目录下有一个名为myConfig.xml的XML文件，你可以像这样将它导入到Spring Boot应用程序中;
+75、Spring Boot默认配置了一个 PropertySourcesPlaceholderConfigurer Bean，它将从 application.properties 和 application.yml 文件中获取属性。
+76、HandlerInterceptorAdapter类是Spring框架提供的一个类，它允许您在Spring MVC应用程序中拦截和定制HTTP请求和响应的处理。
+   # # #概述
+   HandlerInterceptorAdapter类是一个实现HandlerInterceptor接口的抽象类。它为创建自定义拦截器提供了方便的基本实现。拦截器是可用于对HTTP请求和响应执行预处理和后处理任务的组件。
+   # # #使用
+   要使用HandlerInterceptorAdapter类，您需要创建一个子类并覆盖您想要自定义的方法。下面是一些你可以重写的方法:
+   —preHandle:在实际的处理程序方法被调用之前调用这个方法。它允许您执行预处理任务，例如日志记录、身份验证或授权检查。如果需要，还可以修改请求或响应对象。该方法应返回true以继续处理请求，或返回false以停止处理并返回响应。
+   - postHandle:这个方法在处理程序方法被调用之后，但是在视图被渲染之前被调用。它允许您执行后处理任务，例如修改模型或向视图添加附加属性。如果需要，还可以修改请求或响应对象。
+   - afterCompletion:这个方法在视图被渲染并且响应被发送到客户端之后被调用。它允许您执行清理任务或日志记录。即使在请求处理期间发生异常，也始终调用此方法。
+   要使用自定义拦截器，需要将其注册到Spring MVC配置中。这可以通过扩展WebMvcConfigurerAdapter类和重写addInterceptors方法来实现。这里有一个例子;
+77、OncePerRequestFilter类是Spring框架提供的一个类，它允许您创建自定义过滤器，以便在Spring应用程序中应用于HTTP请求。
+   # # #概述
+   OncePerRequestFilter类是一个抽象类，它扩展了GenericFilterBean类并实现了Filter接口。它为创建每个请求只执行一次的过滤器提供了方便的基本实现。
+   # # #使用
+   要使用OncePerRequestFilter类，您需要创建一个子类并覆盖doFilterInternal方法。对于每个传入的HTTP请求调用此方法，并允许您对请求和响应对象执行自定义处理。
+   public class MyFilter extends OncePerRequestFilter {
+
+       @Override
+       protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+           // Custom processing logic here
+
+           // Call the next filter in the chain
+           filterChain.doFilter(request, response);
+       }
+   }
+78、一个典型的 Maven 构建生命周期是由以下几个阶段的序列组成的：
+   阶段	处理	描述
+   prepare-resources	资源拷贝	本阶段可以自定义需要拷贝的资源
+   compile	编译	本阶段完成源代码编译
+   package	打包	本阶段根据 pom.xml 中描述的打包配置创建 JAR / WAR 包
+   install	安装	本阶段在本地 / 远程仓库中安装工程包
+79、通过 Maven 设置激活 Profile
+    <activeProfiles>
+       <activeProfile>test</activeProfile>
+    </activeProfiles>
+80、maven的clean
+    在清理阶段，Maven执行以下任务:
+   1. 删除目标目录:目标目录是编译类、打包工件和生成文档的默认输出目录。Maven删除此目录以删除以前构建中的任何构件。
+   通过执行清理阶段，您可以确保您的项目从一个干净的石板开始，没有以前构建生成的任何工件。当您想要确保一致和可复制的构建环境时，这是非常有用的。
+81、除了 application 属性文件，Spring Boot还将尝试使用 application-{profile}
+    的命名惯例加载profile特定的文件。 例如，如果你的应用程序激活了名为 prod 的配置文件
+   （spring.profiles.active=prod）并使用YAML文件，那么 application.yaml 和
+   application-prod.yaml 都将被考虑。特定文件(profiles)的属性与标准的 application.properties 的位置相同，
+   特定文件总是优先于非特定文件。 如果指定了几个配置文件，则采用最后胜出的策略。 例如，如果配置文件 prod,live
+   是由 spring.profiles.active 属性指定的，application-prod.properties 中的值可以被
+   application-live.properties 中的值所覆盖。
+82、
