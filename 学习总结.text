@@ -272,4 +272,6 @@
    特定文件总是优先于非特定文件。 如果指定了几个配置文件，则采用最后胜出的策略。 例如，如果配置文件 prod,live
    是由 spring.profiles.active 属性指定的，application-prod.properties 中的值可以被
    application-live.properties 中的值所覆盖。
-82、
+82、浏览器发送一个HTTP请求，HTTP请求由Web容器分配给特定的Servlet进行处理，Servlet的本质是一个Java对象，
+    这个对象拥有一系列的方法来处理HTTP请求。常见的方法有doGet()，doPost()等。Web容器中包含了多个Servlet，
+    特定的HTTP请求该由哪一个Servlet来处理是由Web容器中的web.xml来决定的。
