@@ -13,5 +13,6 @@ public class 学习总结mysql相关 {
     *   需要在my.cnf 添加[client] stock = ([mysqld]里面对应的sock的对应地址)
     *   不同版本的修改账号密码sql不一样，看日志，位置为 /var/log/mysql.log
     * 3、用mysql导入数据.sql文件，use 数据库名字； source *.sql 文件绝对路径
+    * 4、修改用户远程登录权限用该命令:RENAME USER 'sammy'@'localhost' TO 'sammy'@'remote_server_ip';
     * */
 }

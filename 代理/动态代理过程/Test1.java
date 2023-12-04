@@ -6,6 +6,7 @@ import 代理.动态代理过程.imp.RobotImp1;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.ArrayList;
 
 /**
  * @Author shizq18
@@ -14,13 +15,15 @@ import java.lang.reflect.Proxy;
  */
 public class Test1 {
     public static void main(String[] args) {
-        Robot obj = new RobotImp1();
+        /*Robot obj = new RobotImp1();
         MyInvocationHandler handler = new MyInvocationHandler(obj);
         Robot proxy = (Robot) Proxy.newProxyInstance(
                 obj.getClass().getClassLoader(),
                 new Class[] { Robot.class },
                 handler
         );
-        proxy.doWork();
+        proxy.doWork();*/
+        new ArrayList<>();
+        System.out.println("success");
     }
 }
