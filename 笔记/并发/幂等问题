@@ -1,0 +1,26 @@
+1、解决幂等问题：
+    1. insert前先select
+    2. 加悲观锁
+    3. 加乐观锁
+        既然悲观锁有性能问题，为了提升接口性能，我们可以使用乐观锁。需要在表中增加一个timestamp或者version字段，
+        这里以version字段为例。在更新数据之前先查询一下数据：
+        select id,amount,version from user id=123;
+        如果数据存在，假设查到的version等于1，再使用id和version字段作为查询条件更新数据：
+        update user set amount=amount+100,version=version+1
+        where id=123 and version=1;
+        更新数据的同时version+1，然后判断本次update操作的影响行数，如果大于0，则说明本次更新成功，如果等于0，
+        则说明本次更新没有让数据变更。
+        由于第一次请求version等于1是可以成功的，操作成功后version变成2了。这时如果并发的请求过来，再执行相同的sql：
+        update user set amount=amount+100,version=version+1
+        where id=123 and version=1;
+        该update操作不会真正更新数据，最终sql的执行结果影响行数是0，因为version已经变成2了，where中的version=1
+        肯定无法满足条件。但为了保证接口幂等性，接口可以直接返回成功，因为version值已经修改了，那么前面必定已经成功过
+        一次，后面都是重复的请求
+    4. 加唯一索引
+    5. 建防重表
+    6. 根据状态机
+    7. 加分布式锁
+        目前主要有三种方式实现redis的分布式锁：
+        setNx命令
+        set命令
+        Redission框架

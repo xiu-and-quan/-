@@ -1,0 +1,12 @@
+1、explain使用：
+    explain select * from table_name where 条件
+    看索引具体使用
+2、创建联合索引语句：
+    CREATE INDEX pub_creat_date_and_order_no
+         ON SPO_SERVICE_ORDER (PUB_CREATE_DATE,ORDER_NO) tablespace spod;末尾为表空间
+   删除索引
+   drop index 索引名称
+3、指定索引策略 select * /*+ index(table_name,index_name) */
+  from table_name table_name
+4、
+

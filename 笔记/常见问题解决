@@ -1,0 +1,2 @@
+1、idea突然显示java: 未结束的字符串文字，更改字符集重新发布
+2、idea中文乱码：help->edit custom VM option + -Dfile.encoding=UTF-8 然后重启idea就行

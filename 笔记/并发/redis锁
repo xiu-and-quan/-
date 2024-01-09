@@ -1,0 +1,33 @@
+1、代码示范
+    // redis上锁防止重复数据插入
+    final String CACH_KEY = REDIS_KEY + element.getRowId();
+    final String CACH_VALUE = UUID.randomUUID().toString();
+    // 获取采购接单行操作锁.
+    String lock = JedisUtil.getJedisInstance().execJedisOperate(new JedisCallback<String>() {
+        public String invoke(ShardedJedis jedis) {
+            return jedis.set(CACH_KEY, CACH_VALUE, "NX", "EX", REDIS_CACH_TIME);
+        }
+    });
+    // 无法获取锁，释放已持有的锁
+    if (StringUtils.isBlank(lock) || !lock.equals("OK")) {
+        logger.warn("cant' get lock. " + FastJSONHelper.serialize(element));
+        clearRedis(redisList);
+        throw new BaseException("", "不可重复执行");
+
+    }
+    redisList.add(new String[]{CACH_KEY,CACH_VALUE});
+
+    // 释放锁
+    private void clearRedis(List<String[]> redisList) {
+            if (!redisList.isEmpty()) {
+                for (int i = redisList.size()-1; i >=0; i--) {
+                    String CACH_KEY = redisList.get(i)[0];
+                    String CACH_VALUE = redisList.get(i)[1];
+                    // 清除lock
+                    String keyVal = JedisUtil.getJedisInstance().execGetFromCache(CACH_KEY);
+                    if (StringUtils.isNotBlank(keyVal) && keyVal.equals(CACH_VALUE)) {
+                        JedisUtil.getJedisInstance().execDelToCache(CACH_KEY);
+                    }
+                }
+            }
+        }
