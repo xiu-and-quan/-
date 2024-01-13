@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class Test {
     public static void main(String[] args) {
-        Character[] array = new Character[]{'A','a','b','B'};
+        /*Character[] array = new Character[]{'A','a','b','B'};
         Arrays.sort(array, (o1,o2)-> {
             return Character.toLowerCase(o1) - (Character.toLowerCase(o1));
         });
@@ -32,10 +32,10 @@ public class Test {
         for (Character element:
              letters) {
             System.out.print(element + "  ");
-        }
-        /*int[] numbers = new int[]{9,8,7,4,6,5};
-        quickSort(numbers, 0, 5);
-        System.out.println(Arrays.toString(numbers));*/
+        }*/
+        int[] numbers = new int[]{9,8,7,6,5};
+        quickSort(numbers, 0, 4);
+        System.out.println(Arrays.toString(numbers));
     }
 
     public static void quickSort(int[] array, int left, int right){
